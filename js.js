@@ -18,9 +18,11 @@ function getRandomInt(min, max) {
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase()
+
     if (playerSelection == computerSelection.toUpperCase()) {
         return `Tie! Both picked ${computerSelection}`;
     }
+
     switch (playerSelection){
         case "ROCK":
             if (computerSelection == "Scissors"){
@@ -55,6 +57,19 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+function game(){
+    let playerSelection;
+    let computerSelection;
+
+    for (let i = 0; i < 5; i++){
+        playerSelection = prompt(`Round ${i + 1}! Pick your weapon`).toUpperCase()
+        while (playerSelection != "ROCK" && playerSelection != "SCISSORS" && playerSelection != "PAPER"){
+            playerSelection = prompt("Not a valid selection. Retype.").toUpperCase()
+        }
+        computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection)
+    }
+}
+
+

@@ -16,36 +16,37 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function playRound(playerSelection, ComputerSelection){
-    if (playerSelection == ComputerSelection) {
-        return `Tie! Both picked ${playerSelection}`;
+function playRound(playerSelection, computerSelection){
+    playerSelection = playerSelection.toUpperCase()
+    if (playerSelection == computerSelection) {
+        return `Tie! Both picked ${computerSelection}`;
     }
     switch (playerSelection){
-        case "Rock":
-            if (ComputerSelection == "Scissors"){
+        case "ROCK":
+            if (computerSelection == "Scissors"){
                 return `You win! Rock beats Scissors`
             }
-            else if (ComputerSelection =="Paper"){
+            else if (computerSelection =="Paper"){
                 return `You lose! Paper beats rock.`
             }
             else {
                 return "Error"
             }
-        case "Paper":
-            if (ComputerSelection == "Scissors"){
+        case "PAPER":
+            if (computerSelection == "Scissors"){
                 return `You lose! Scissors beat Paper`
             }
-            else if (ComputerSelection =="Rock"){
+            else if (computerSelection =="Rock"){
                 return `You win! Paper beats Rock`
             }
             else {
                 return "Error"
             }
-        case "Scissors":
-            if (ComputerSelection == "Rock"){
+        case "SCISSORS":
+            if (computerSelection == "Rock"){
                 return `You lose! Rock beats Scissors`
             }
-            else if (ComputerSelection =="Paper"){
+            else if (computerSelection =="Paper"){
                 return `You win! Scissors beat Paper`
             }
             else {

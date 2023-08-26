@@ -20,36 +20,36 @@ function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase()
 
     if (playerSelection == computerSelection.toUpperCase()) {
-        return `Tie! Both picked ${computerSelection}`;
+        return 2
     }
 
     switch (playerSelection){
         case "ROCK":
             if (computerSelection == "Scissors"){
-                return `You win! Rock beats Scissors`
+                return 1
             }
             else if (computerSelection =="Paper"){
-                return `You lose! Paper beats rock.`
+                return 0
             }
             else {
                 return "Error"
             }
         case "PAPER":
             if (computerSelection == "Scissors"){
-                return `You lose! Scissors beat Paper`
+                return 0
             }
             else if (computerSelection =="Rock"){
-                return `You win! Paper beats Rock`
+                return 1
             }
             else {
                 return "Error"
             }
         case "SCISSORS":
             if (computerSelection == "Rock"){
-                return `You lose! Rock beats Scissors`
+                return 0
             }
             else if (computerSelection =="Paper"){
-                return `You win! Scissors beat Paper`
+                return 1
             }
             else {
                 return "Error"
@@ -61,6 +61,9 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let playerSelection;
     let computerSelection;
+    let counter = 0;
+    let round;
+    let ties = 0;
 
     for (let i = 0; i < 5; i++){
         playerSelection = prompt(`Round ${i + 1}! Pick your weapon`).toUpperCase()
@@ -68,8 +71,23 @@ function game(){
             playerSelection = prompt("Not a valid selection. Retype.").toUpperCase()
         }
         computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection)
+        console.log(`Computers choice was ${computerSelection}.`)
+        round = playRound(playerSelection, computerSelection)
+        
+        if (round == 1){
+            console.log("You won this one");
+            counter += 1;
+        }
+        else if (round == 0){
+            console.log("You lost this one");
+        }
+        else {
+            console.log("Tie!")
+            ties += 1;
+        }
     }
+
+    console.log(`You won ${counter} out of 5 games. There was ${ties} Tie(s). Congrats!`)
 }
 
 

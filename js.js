@@ -18,7 +18,7 @@ function getRandomInt(min, max) {
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase()
-    if (playerSelection == computerSelection) {
+    if (playerSelection == computerSelection.toUpperCase()) {
         return `Tie! Both picked ${computerSelection}`;
     }
     switch (playerSelection){
@@ -54,3 +54,7 @@ function playRound(playerSelection, computerSelection){
             }
     }
 }
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));

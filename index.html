@@ -4,9 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js.js"></script>
+    <script src="js.js" defer></script>
 </head>
 <body>
     
+    <div id="buttons">
+        <div id="realb">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
+        <div id="results" class="invisible">
+            <div class="currentgame"></div>
+            <p>Player won </p><p class="pwins res"></p>
+            <p>Computer won</p><p class="cwins res"></p>
+            <p>Ties</p><p class="ties res"></p>
+        </div>
+    </div>
+    <div class="won"></div>
 </body>
+<style>
+
+    button {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        font-size: 40px;
+        margin:10px;
+        background-color: black;
+        color: white;
+        border-radius:20px;
+        border-style: solid;
+        border-color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    #realb{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .res{
+        font-size: 30px;
+        text-shadow: 2px;
+    }
+
+    #buttons{
+        background-color:hotpink;
+        flex-wrap: wrap;
+        width: 100vw;
+        height:100vh;
+        justify-content: center;
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+        gap:10px;
+        
+    }
+
+    .invisible{
+        display: none;
+    }
+
+    .currentgame{
+        color: white;
+    }
+
+    .won{
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+    }
+</style>
 </html>
